@@ -1,0 +1,17 @@
+$color-one: #FFF7C3;
+$color-two: #2141CA;
+$color-three: #EB4B33;
+$color-four: #62CECA;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
+
+}
+#app{
+    width: 100%;
+    height: auto;
+    background-color: $color-one;
+}
