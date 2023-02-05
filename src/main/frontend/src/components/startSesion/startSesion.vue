@@ -46,7 +46,8 @@ const emitValidation = () =>{
         width: 90%;
         background-color: $color-three;
         margin: 1%;
-        
+        animation-name: example;
+        animation-duration: 2s;
     }
     .btn-space{
         margin: 2%;

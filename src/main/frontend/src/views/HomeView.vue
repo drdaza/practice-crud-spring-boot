@@ -27,24 +27,17 @@ const alertZone = computed(()=>{
 <template>
   <main>
     <div :class="alertZone">
-      <v-alert
-      color="info"
-      title="Tonal"
-      variant="tonal"
-    >
-      <p>
-        Maecenas nec odio et ante tincidunt tempus. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Curabitur turpis.
-      </p>
-
-        
-        <v-btn
-          color="info"
-          @click="resetinputs()"
-        >
+      <v-alert color="error" title="Error" variant="tonal">
+        <p>
+          Your password or username are incorrect.
+        </p>
+    
+    
+        <v-btn color="error" @click="resetinputs()">
           Okay
         </v-btn>
-      
-    </v-alert>
+    
+      </v-alert>
     </div>
     <startSesion 
     @valid-emit="captureEmit"/>
@@ -53,10 +46,12 @@ const alertZone = computed(()=>{
 <style lang="scss" scoped>
 @use '../assets/sass/main' as *;
 main{
-  @include displayFlex(100%, 95vh, row, center, center);
+  @include displayFlex(100%, 95vh, column, center, center);
   .show{
+    animation-name: opacitytransition;
+    animation-duration: 800ms;
     visibility: visible;
-
+    margin: 1%;
   }
   .hidden{
     visibility: hidden;
@@ -65,5 +60,13 @@ main{
 
     overflow: hidden;
   }
+}
+@keyframes opacitytransition {
+    from{
+        opacity: 0;
+    }
+    to{
+      opacity: 100;
+    }
 }
 </style>
