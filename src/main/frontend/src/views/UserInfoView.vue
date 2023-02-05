@@ -5,7 +5,7 @@ import { onBeforeMount } from 'vue';
 import UserPayLoad from '../apiCall/ApipayLoads/UserPayLoad';
 
 const userstore = userStore();
-const element = reactive(new UserPayLoad(0,'',''));
+const principalUser = reactive(new UserPayLoad(0,'',''));
 onBeforeMount(async() => {
 /*   userstore.Asign(); */
 
@@ -15,9 +15,9 @@ createTemporal( await userstore.getOne());
 })
 
 const createTemporal = (object)=>{
-  element.id=object.id;
-  element.username=object.username
-  element.password=object.password
+  principalUser.id = object.id;
+  principalUser.username = object.username;
+  principalUser.password = object.password;
 }
 
 
@@ -26,9 +26,9 @@ const createTemporal = (object)=>{
 </script>
 <template>
     <div class="info">
-      <h1>This is {{element.id}} page details</h1>
-      <h1>This is {{element.username}} page details</h1>
-      <h1>This is {{element.password}} page details</h1>
+      <h1>This is {{principalUser.id}} page details</h1>
+      <h1>This is {{principalUser.username}} page details</h1>
+      <h1>This is {{principalUser.password}} page details</h1>
     </div>
   </template>
   

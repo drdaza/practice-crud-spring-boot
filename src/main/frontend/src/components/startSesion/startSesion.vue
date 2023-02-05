@@ -13,7 +13,7 @@ let password = ref('');
 const emits = defineEmits(['valid-emit']);
 
 const emitValidation = () =>{
-    emits('valid-emit',password.value);
+    emits('valid-emit',password.value,user.value);
 }
 
 

@@ -2,16 +2,24 @@
 import startSesion from '../components/startSesion/startSesion.vue';
 import { useRouter } from 'vue-router';
 import { passwordStore } from '../stores/passwordStore';
+import { userStore } from '../stores/UserStore';
 import { ref, computed } from 'vue';
 
+const userstore = userStore()
 const keywordStore = passwordStore();
 const router = useRouter();
 let showAlert = ref(false);
 
-const captureEmit = (password)=>{
+const captureEmit = (password,username)=>{
   keywordStore.asignPasswords();
-  if(keywordStore.verifyPasswords(password)) router.push({name:'user', path:'/user'})
-  if(!keywordStore.verifyPasswords(password)) showAlert.value = true;
+  userstore.Asign();
+  for (const user of userstore.users) {
+    if(user.password===password&&user.username===username)router.push({name:'user',params: {user:user.username}})
+
+  }
+  showAlert.value = true;
+  
+  
 }
 const resetinputs = () => {
 

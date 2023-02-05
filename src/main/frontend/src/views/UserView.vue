@@ -1,11 +1,16 @@
 <script setup>
 import asideBar from '../components/asideBar/asideBar.vue';
 import { RouterView } from 'vue-router';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
+
+let path = route.params.user;
+console.log(path);
 </script>
 <template>
   <main>
-    <asideBar :title="'pepe'"/>
+    <asideBar :title="`${path}`"/>
     <RouterView />
   </main>
   
