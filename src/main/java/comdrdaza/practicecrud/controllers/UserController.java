@@ -43,17 +43,8 @@ public class UserController {
         service.saveUser(user);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody User user){
-        try {
-            User findUserExist = service.getUser(id);
-            if(findUserExist != null){
-            user.setId(id);
-            service.saveUser(user);
-            return new ResponseEntity<>(HttpStatus.OK);}
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public User update(@PathVariable Long id, @RequestBody User user){
+        return service.update(id, user);
     }
     @DeleteMapping("/{id}")
     public List<User>  delete(@PathVariable Long id) {
