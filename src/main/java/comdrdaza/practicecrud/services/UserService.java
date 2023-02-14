@@ -24,6 +24,14 @@ public class UserService {
     public void saveUser(User user){
        repository.save(user);
     }
+    public User updateUser(Long id, User userToFind){
+        return repository.findById(id).map(userToAdd -> {
+            userToAdd.setUsername(userToFind.getUsername());
+            userToAdd.setPassword(userToFind.getPassword());
+            return repository.save(userToAdd);
+        }).orElse(null);
+
+    }
     public User getUser(Long id){
         return repository.findById(id).get();
     }
