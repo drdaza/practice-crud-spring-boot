@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +26,12 @@ public class UserController {
         this.service = service;
     }
 
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("")
     public List<User> listAll(){
         return service.listAllUsers();
     }
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("/{id}")
     public ResponseEntity<User> get(@PathVariable Long id){
         try {
@@ -38,10 +41,12 @@ public class UserController {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
     }
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("")
     public void add(@RequestBody User user){
         service.saveUser(user);
     }
+    @PreAuthorize("hasRole('admin')")
     @PutMapping("/{id}")
     public User update(@PathVariable Long id, @RequestBody User user){
         try {
@@ -50,6 +55,7 @@ public class UserController {
             return null;
         }
     }
+    @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/{id}")
     public List<User>  delete(@PathVariable Long id) {
 

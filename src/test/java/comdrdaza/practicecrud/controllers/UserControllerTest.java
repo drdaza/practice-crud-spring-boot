@@ -8,9 +8,9 @@ import comdrdaza.practicecrud.models.User;
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+/* import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put; */
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
@@ -35,8 +35,8 @@ public class UserControllerTest {
     void test_index_return_all_user() throws Exception{
 
         List<User> users = new ArrayList<>();
-        User drdaza = new User(null, "drdaza", "drdaza123");
-        User aniquilador = new User(null, "aniquilador", "aniquiler123");
+        User drdaza = new User(null, "drdaza", "drdaza123","user");
+        User aniquilador = new User(null, "aniquilador", "aniquiler123","admin");
         users.add(drdaza);
         users.add(aniquilador);
 

@@ -6,11 +6,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+/* import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status; */
 
 import java.util.Optional;
 
@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import comdrdaza.practicecrud.models.User;
-import comdrdaza.practicecrud.services.UserService;
+/* import comdrdaza.practicecrud.services.UserService; */
 import comdrdaza.practicecrud.repositories.UserRepository;
 
 
@@ -33,7 +33,7 @@ public class UserServiceTest {
 
     @Test
     public void test_get_one(){
-        User drdaza = new User(1L, "drdaza", "drdaza123");
+        User drdaza = new User(1L, "drdaza", "drdaza123", "user");
 
         when(repository.findById(1L)).thenReturn(Optional.of(drdaza));
 

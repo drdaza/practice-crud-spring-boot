@@ -1,1 +1,2 @@
-INSERT INTO users VALUES(default, 'drdaza', 'drdaza123')
+INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'admin,user','drdaza')
+INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'user','user')

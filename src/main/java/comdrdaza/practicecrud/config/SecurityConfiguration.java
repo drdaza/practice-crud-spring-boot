@@ -1,5 +1,6 @@
 package comdrdaza.practicecrud.config;
 
+import comdrdaza.practicecrud.services.JpaUserDetailsService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,6 +21,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
     
+    private JpaUserDetailsService jpaUserDetailsService;
+
+    
+
+    public SecurityConfiguration(JpaUserDetailsService jpaUserDetailsService) {
+        this.jpaUserDetailsService = jpaUserDetailsService;
+    }
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.cors()
@@ -30,16 +39,17 @@ public class SecurityConfiguration {
                                    .logoutUrl("/api/logout")
                                    .deleteCookies("JSESSIONID"))
                     .authorizeHttpRequests(auth -> auth
-                                                   .antMatchers("/api/users").hasRole("USER")
-                                                   .antMatchers("/api/users").hasRole("ADMIN")
+                                                   .antMatchers("/api/users").permitAll()
+                                                   .antMatchers("/api/users/**").permitAll()
                                                    .anyRequest().authenticated())
+                    .userDetailsService(jpaUserDetailsService)
                     .headers(header -> header.frameOptions().disable())
                     .httpBasic(Customizer.withDefaults());   
 
         return httpSecurity.build();
     }
 
-        @Bean
+        /* @Bean
         InMemoryUserDetailsManager userDetailsManager(){
 
             PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -63,5 +73,5 @@ public class SecurityConfiguration {
             users.add(user2);
 
             return new InMemoryUserDetailsManager(users);
-        }
+        } */
 }
