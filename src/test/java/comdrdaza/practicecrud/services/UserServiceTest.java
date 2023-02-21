@@ -6,13 +6,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
-/* import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status; */
+
 
 import java.util.Optional;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -41,5 +39,24 @@ public class UserServiceTest {
 
         assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getUsername()).isEqualTo("drdaza");
+    }
+
+    @Test 
+    public void test_find_all(){
+        User drdaza = new User(1L, "drdaza", "drdaza123", "user");
+        User davidD = new User(1L, "davidD", "davidD123", "user");
+
+        List<User> users = new ArrayList<>();
+
+        users.add(davidD);
+        users.add(drdaza);
+
+        when(repository.findAll()).thenReturn(users);
+
+        List<User> allUsers = service.listAllUsers();
+
+
+        assertThat(allUsers.size()).isEqualTo(2);
+        
     }
 }
