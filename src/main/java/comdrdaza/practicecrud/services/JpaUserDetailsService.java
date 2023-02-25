@@ -1,12 +1,12 @@
 package comdrdaza.practicecrud.services;
 
-import org.springframework.security.core.userdetails.User;
+/* import org.springframework.security.core.userdetails.User; */
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
+/* import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder; */
 
 
 import comdrdaza.practicecrud.repositories.UserRepository;
@@ -28,12 +28,12 @@ public class JpaUserDetailsService implements UserDetailsService{
                          .map(SecurityUser::new)
                          .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
 
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        String password = encoder.encode("1234");
+        /* PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder(); */
+        /* String password = encoder.encode("password");
 
-        user.setPassword(password); 
+        user.setPassword(password);  */
 
-        System.out.println("this is the pass: " + user.getPassword());
+
 
         return user;
         

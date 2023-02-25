@@ -1,2 +1,2 @@
-INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'admin,user','drdaza')
-INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'user','user')
+INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'ROLE_ADMIN,ROLE_USER','drdaza')
+INSERT INTO users VALUES(default,  '{bcrypt}$2a$10$7G1UoSVGRbir2NPdA2yEkuIJqvzIH9FR1cNzcCtmtZ5nxjh63dCIG', 'ROLE_USER','user')
